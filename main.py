@@ -1,5 +1,7 @@
-from prt2 import DPLL
+from dpll import DPLL
+from brute_force import *
 
+print("### DPLL ###")
 formulas = [
     [{1}, {1}],
     [{2, 1, 1}],
@@ -27,3 +29,14 @@ for i, formula in enumerate(formulas):
         print("La fórmula es satisfacible. Asignación:", assignment)
     else:
         print("La fórmula es insatisfacible.")
+
+print("### BRUTE FORCE ###")
+clauses = [
+    ['A', 'B'],
+    ['B', '~C'],
+    ['A', 'C']
+]
+result, assignment = is_satisfiable(clauses)
+print("Satisfiable:", result)
+if result:
+    print("Assignment:", assignment)
